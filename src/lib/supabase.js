@@ -3,6 +3,8 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || ''
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || ''
 export const TARGET_EMAIL = 'minhtanbear@gmail.com'
+// Token bảo mật đã kích hoạt chính thức cho minhtanbear@gmail.com từ Vercel
+export const TARGET_TOKEN = 'b3e92afc22786a1e9dc31709fa0625f1'
 
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey)
 
@@ -12,19 +14,18 @@ export const supabase = isSupabaseConfigured
 
 /**
  * Gửi thông tin ứng tuyển:
- * 1. Gửi trực tiếp đến email minhtanbear@gmail.com qua FormSubmit AJAX API
- * 2. Tự động nhận diện trạng thái kích hoạt (Needs Activation)
- * 3. Lưu bản sao vào LocalStorage
- * 4. Lưu vào Supabase PostgreSQL (nếu đã cấu hình)
+ * 1. Gửi trực tiếp đến email minhtanbear@gmail.com qua FormSubmit Token b3e92afc22786a1e9dc31709fa0625f1
+ * 2. Lưu bản sao vào LocalStorage
+ * 3. Lưu vào Supabase PostgreSQL (nếu đã cấu hình)
  */
 export async function submitApplication(data) {
   let emailSent = false
   let needsActivation = false
   let responseMessage = ''
 
-  // 1. GỬI TRỰC TIẾP QUA FormSubmit AJAX API
+  // 1. GỬI TRỰC TIẾP QUA FormSubmit AJAX API VỚI TOKEN BẢO MẬT
   try {
-    const res = await fetch(`https://formsubmit.co/ajax/${TARGET_EMAIL}`, {
+    const res = await fetch(`https://formsubmit.co/ajax/${TARGET_TOKEN}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

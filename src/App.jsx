@@ -449,7 +449,7 @@ export default function App() {
                 <div className="space-y-2 pt-2 border-t border-slate-100">
                   <h4 className="text-xs font-black uppercase text-slate-400 tracking-wider">YÊU CẦU ỨNG VIÊN</h4>
                   <p className="text-sm text-slate-600 leading-relaxed">
-                    Sinh viên chuyên ngành CNTT, Kỹ thuật phần mềm hoặc có tư duy lập trình web tốt. Có kinh nghiệm làm web bán hàng (Frontend/Backend hoặc nền tảng E-commerce) là lợi thế lớn. Cần nhanh nhạy, chủ động để bắt nhịp dự án ngay.
+                    Sinh viên thuộc các ngành học khác nhau, có niềm yêu thích công nghệ, tư duy logic và mong muốn tham gia phát triển website. Có kiến thức hoặc kỹ năng về lập trình, thiết kế giao diện web, quản trị website hay vận hành nền tảng thương mại điện tử là một lợi thế. Ưu tiên các bạn chủ động, ham học hỏi, sáng tạo và sẵn sàng tham gia dự án thực tế.
                   </p>
                 </div>
 
