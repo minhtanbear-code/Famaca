@@ -115,28 +115,19 @@ export default function App() {
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-600">
-            <a href="#about" className="hover:text-red-700 transition-colors">Về Famaca</a>
-            <a href="#impact" className="hover:text-red-700 transition-colors">Hành Trình 18+ Năm</a>
-            <a href="#roles" className="hover:text-red-700 transition-colors">3 Đội Tuyển Dụng</a>
-            <a href="#benefits" className="hover:text-red-700 transition-colors">Quyền Lợi Gen Z</a>
-            <a href="#gallery" className="hover:text-red-700 transition-colors">Hình Ảnh Thực Tế</a>
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-semibold text-slate-700 whitespace-nowrap">
+            <a href="#about" className="hover:text-red-700 transition-colors whitespace-nowrap">Về Famaca</a>
+            <a href="#impact" className="hover:text-red-700 transition-colors whitespace-nowrap">Hành trình</a>
+            <a href="#roles" className="hover:text-red-700 transition-colors whitespace-nowrap">Tuyển dụng</a>
+            <a href="#benefits" className="hover:text-red-700 transition-colors whitespace-nowrap">Quyền lợi</a>
+            <a href="#gallery" className="hover:text-red-700 transition-colors whitespace-nowrap">Trải nghiệm</a>
           </nav>
 
-          {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-3">
-            <a 
-              href="https://zalo.me/0903136892" 
-              target="_blank" 
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-red-800 bg-red-50 hover:bg-red-100 rounded-lg transition-colors border border-red-200"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span>Zalo: 0903.136.892</span>
-            </a>
+          {/* Action CTA */}
+          <div className="hidden sm:flex items-center">
             <a 
               href="#apply-form" 
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-red-700 to-rose-600 hover:from-red-800 hover:to-rose-700 text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all transform active:scale-95"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-red-700 to-rose-600 hover:from-red-800 hover:to-rose-700 text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all transform active:scale-95 whitespace-nowrap"
             >
               <span>Ứng Tuyển Ngay</span>
               <ArrowRight className="w-4 h-4" />
@@ -168,37 +159,37 @@ export default function App() {
               onClick={() => setMobileMenuOpen(false)}
               className="block py-2 text-sm font-semibold text-slate-700 hover:text-red-700"
             >
-              Hành Trình 18+ Năm
+              Hành trình
             </a>
             <a 
               href="#roles" 
               onClick={() => setMobileMenuOpen(false)}
               className="block py-2 text-sm font-semibold text-slate-700 hover:text-red-700"
             >
-              3 Đội Tuyển Dụng
+              Tuyển dụng
             </a>
             <a 
               href="#benefits" 
               onClick={() => setMobileMenuOpen(false)}
               className="block py-2 text-sm font-semibold text-slate-700 hover:text-red-700"
             >
-              Quyền Lợi Gen Z
+              Quyền lợi
             </a>
             <a 
               href="#gallery" 
               onClick={() => setMobileMenuOpen(false)}
               className="block py-2 text-sm font-semibold text-slate-700 hover:text-red-700"
             >
-              Hình Ảnh Thực Tế
+              Trải nghiệm
             </a>
             <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
               <a 
-                href="https://zalo.me/0903136892" 
+                href="https://zalo.me/0775986728" 
                 target="_blank" 
                 rel="noreferrer"
                 className="w-full text-center py-2 text-xs font-bold text-red-800 bg-red-50 rounded-lg"
               >
-                Liên hệ Zalo: 0903.136.892 (Mr Hiệu)
+                Liên hệ Zalo: 0775.986.728
               </a>
               <a 
                 href="#apply-form" 
@@ -938,8 +929,8 @@ export default function App() {
                     <Phone className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>Hỗ trợ Zalo (Ưu tiên Team IT)</span>
                   </div>
-                  <p><strong>Người liên hệ:</strong> Mr Hiệu</p>
-                  <p><strong>Zalo / Điện thoại:</strong> 0903.136.892</p>
+                  <p><strong>Người liên hệ:</strong> Hỗ trợ Tuyển dụng</p>
+                  <p><strong>Zalo / Điện thoại:</strong> 0775.986.728</p>
                   <p className="text-[11px] text-slate-500 mt-1">Giải đáp thắc mắc dự án 24/7</p>
                 </div>
               </div>
@@ -997,7 +988,7 @@ export default function App() {
               <h4 className="text-xs font-black uppercase tracking-wider text-white">Liên Hệ Tuyển Dụng</h4>
               <div className="space-y-2 text-xs text-slate-300">
                 <p>📍 <strong>Trụ sở:</strong> 46 Út Tịch, Tân Sơn Nhất, TP. Hồ Chí Minh</p>
-                <p>📞 <strong>Hotline/Zalo:</strong> 0903.136.892 (Mr Hiệu)</p>
+                <p>📞 <strong>Hotline/Zalo:</strong> 0775.986.728</p>
                 <p>✉️ <strong>Email nhận CV:</strong> minhtanbear@gmail.com / famacabook@gmail.com</p>
                 <p>🕒 <strong>Giờ làm việc:</strong> Hỗ trợ giải đáp 24/7 cho ứng viên sinh viên</p>
               </div>
