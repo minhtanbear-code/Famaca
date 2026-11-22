@@ -37,7 +37,8 @@ export async function submitApplication(data) {
         'Vị trí ứng tuyển': data.position,
         'Link CV / Portfolio': data.portfolio || 'Chưa cung cấp',
         'Lời nhắn & Thời gian làm việc': data.message || 'Không có',
-        '_subject': `🔥 [FAMACA ỨNG VIÊN MỚI] ${data.fullName} - ${data.position}`,
+        'Thời gian gửi': new Date().toLocaleString('vi-VN'),
+        '_subject': `🔥 [FAMACA ỨNG VIÊN] ${data.fullName} - ${data.position} (${new Date().toLocaleTimeString('vi-VN', {hour:'2-digit', minute:'2-digit', second:'2-digit'})})`,
         '_template': 'table',
         '_captcha': 'false'
       })
