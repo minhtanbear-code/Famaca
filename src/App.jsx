@@ -913,24 +913,34 @@ export default function App() {
               )}
 
               {/* Direct Contacts Info */}
-              <div className="mt-10 pt-8 border-t border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-600">
+              <div className="mt-10 pt-8 border-t border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-600">
                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
                   <div className="font-bold text-slate-900 mb-1 flex items-center gap-1.5">
-                    <Mail className="w-4 h-4 text-red-700" />
-                    <span>Gửi trực tiếp qua Email</span>
+                    <MapPin className="w-4 h-4 text-rose-600 shrink-0" />
+                    <span>Trụ sở làm việc</span>
                   </div>
-                  <p><strong>Email chính:</strong> minhtanbear@gmail.com</p>
-                  <p><strong>Email công ty:</strong> famacabook@gmail.com</p>
-                  <p><strong>Tiêu đề:</strong> [Vị trí ứng tuyển] – [Họ và tên] – [SĐT]</p>
+                  <p><strong>Địa chỉ:</strong> 46 Út Tịch, Tân Sơn Nhất, TP. Hồ Chí Minh</p>
+                  <p className="text-[11px] text-slate-500 mt-1">Không gian làm việc sáng tạo & phỏng vấn trực tiếp</p>
                 </div>
 
                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
                   <div className="font-bold text-slate-900 mb-1 flex items-center gap-1.5">
-                    <Phone className="w-4 h-4 text-emerald-600" />
+                    <Mail className="w-4 h-4 text-red-700 shrink-0" />
+                    <span>Gửi trực tiếp qua Email</span>
+                  </div>
+                  <p><strong>Email chính:</strong> minhtanbear@gmail.com</p>
+                  <p><strong>Email công ty:</strong> famacabook@gmail.com</p>
+                  <p><strong>Tiêu đề:</strong> [Vị trí] – [Họ tên] – [SĐT]</p>
+                </div>
+
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                  <div className="font-bold text-slate-900 mb-1 flex items-center gap-1.5">
+                    <Phone className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>Hỗ trợ Zalo (Ưu tiên Team IT)</span>
                   </div>
                   <p><strong>Người liên hệ:</strong> Mr Hiệu</p>
                   <p><strong>Zalo / Điện thoại:</strong> 0903.136.892</p>
+                  <p className="text-[11px] text-slate-500 mt-1">Giải đáp thắc mắc dự án 24/7</p>
                 </div>
               </div>
 
@@ -986,7 +996,7 @@ export default function App() {
             <div className="md:col-span-4 space-y-3">
               <h4 className="text-xs font-black uppercase tracking-wider text-white">Liên Hệ Tuyển Dụng</h4>
               <div className="space-y-2 text-xs text-slate-300">
-                <p>📍 <strong>Trụ sở:</strong> TP. Hồ Chí Minh, Việt Nam</p>
+                <p>📍 <strong>Trụ sở:</strong> 46 Út Tịch, Tân Sơn Nhất, TP. Hồ Chí Minh</p>
                 <p>📞 <strong>Hotline/Zalo:</strong> 0903.136.892 (Mr Hiệu)</p>
                 <p>✉️ <strong>Email nhận CV:</strong> minhtanbear@gmail.com / famacabook@gmail.com</p>
                 <p>🕒 <strong>Giờ làm việc:</strong> Hỗ trợ giải đáp 24/7 cho ứng viên sinh viên</p>
