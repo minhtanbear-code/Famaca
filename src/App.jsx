@@ -44,6 +44,7 @@ export default function App() {
   })
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [submitResult, setSubmitResult] = useState(null)
   const [errorMessage, setErrorMessage] = useState('')
 
   const handleRoleSelect = (roleName) => {
@@ -60,7 +61,8 @@ export default function App() {
     setSubmitting(true)
     setErrorMessage('')
     try {
-      await submitApplication(formData)
+      const res = await submitApplication(formData)
+      setSubmitResult(res)
       setSubmitted(true)
     } catch (err) {
       console.error(err)
@@ -737,18 +739,47 @@ export default function App() {
             <div className="p-8 sm:p-10">
               
               {submitted ? (
-                <div className="text-center py-12 space-y-4">
+                <div className="text-center py-10 space-y-5">
                   <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900">Nộp Hồ Sơ Thành Công!</h3>
-                  <p className="text-slate-600 max-w-md mx-auto text-sm">
-                    Cảm ơn bạn đã quan tâm và nộp hồ sơ gia nhập FAMACA. Thông tin ứng tuyển của bạn đã được chuyển trực tiếp tới email quản trị viên: <strong className="text-red-700">minhtanbear@gmail.com</strong>. Ban tuyển dụng sẽ liên hệ lại với bạn qua Zalo/Điện thoại trong vòng 24 - 48 giờ làm việc.
-                  </p>
-                  <div className="pt-4">
+                  <h3 className="text-2xl font-black text-slate-900">Nộp Hồ Sơ Thành Công!</h3>
+
+                  {submitResult?.needsActivation ? (
+                    <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 text-left space-y-3 max-w-lg mx-auto shadow-sm">
+                      <div className="flex items-center gap-2 text-amber-900 font-bold text-sm">
+                        <Mail className="w-5 h-5 text-amber-600 shrink-0" />
+                        <span>Bước xác thực 1 lần duy nhất cho quản trị viên:</span>
+                      </div>
+                      <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        Dịch vụ email FormSubmit vừa gửi một thư xác nhận tới hòm thư <strong>minhtanbear@gmail.com</strong> (tiêu đề <em>"Action Required: Activate Form"</em>).
+                      </p>
+                      <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        Bạn chỉ cần mở Gmail và bấm nút <strong>"Activate Form"</strong> trong email đó 1 lần duy nhất. Sau đó, toàn bộ hồ sơ từ website sẽ bay thẳng vào hộp thư của bạn!
+                      </p>
+                      <div className="pt-2 flex flex-wrap gap-3">
+                        <a 
+                          href="https://mail.google.com" 
+                          target="_blank" 
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 bg-red-700 hover:bg-red-800 text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow transition-all"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5" />
+                          <span>Mở Gmail kiểm tra ngay</span>
+                        </a>
+                      </div>
+                    </div>
+                  ) : (
+                    <p className="text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
+                      Thông tin ứng tuyển của bạn đã được tiếp nhận và chuyển trực tiếp tới email quản trị viên: <strong className="text-red-700">minhtanbear@gmail.com</strong>. Ban tuyển dụng sẽ liên hệ lại với bạn qua Zalo/Điện thoại trong vòng 24 - 48 giờ làm việc.
+                    </p>
+                  )}
+
+                  <div className="pt-2">
                     <button 
                       onClick={() => {
                         setSubmitted(false)
+                        setSubmitResult(null)
                         setFormData({
                           fullName: '',
                           phone: '',
@@ -758,7 +789,7 @@ export default function App() {
                           message: ''
                         })
                       }}
-                      className="text-sm font-bold text-red-700 hover:text-red-800 underline"
+                      className="text-xs font-bold text-red-700 hover:text-red-800 underline"
                     >
                       Gửi thêm một hồ sơ khác
                     </button>

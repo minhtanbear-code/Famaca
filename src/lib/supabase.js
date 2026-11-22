@@ -2,7 +2,7 @@ import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || ''
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || ''
-const TARGET_EMAIL = 'minhtanbear@gmail.com'
+export const TARGET_EMAIL = 'minhtanbear@gmail.com'
 
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey)
 
@@ -12,15 +12,17 @@ export const supabase = isSupabaseConfigured
 
 /**
  * Gửi thông tin ứng tuyển:
- * 1. Gửi trực tiếp đến email minhtanbear@gmail.com (Miễn phí 100% qua FormSubmit API)
- * 2. Lưu vào Supabase PostgreSQL database (nếu đã kết nối)
- * 3. Lưu bản sao vào LocalStorage máy khách
+ * 1. Gửi trực tiếp đến email minhtanbear@gmail.com qua FormSubmit AJAX API
+ * 2. Tự động nhận diện trạng thái kích hoạt (Needs Activation)
+ * 3. Lưu bản sao vào LocalStorage
+ * 4. Lưu vào Supabase PostgreSQL (nếu đã cấu hình)
  */
 export async function submitApplication(data) {
   let emailSent = false
-  let emailError = null
+  let needsActivation = false
+  let responseMessage = ''
 
-  // 1. GỬI TRỰC TIẾP QUA EMAIL minhtanbear@gmail.com
+  // 1. GỬI TRỰC TIẾP QUA FormSubmit AJAX API
   try {
     const res = await fetch(`https://formsubmit.co/ajax/${TARGET_EMAIL}`, {
       method: 'POST',
@@ -42,12 +44,15 @@ export async function submitApplication(data) {
     })
 
     const result = await res.json()
+    responseMessage = result.message || ''
+
     if (result.success === 'true' || result.success === true) {
       emailSent = true
+    } else if (responseMessage.toLowerCase().includes('activation')) {
+      needsActivation = true
     }
   } catch (err) {
-    console.warn('Gửi qua FormSubmit email lỗi hoặc đang kích hoạt lần đầu:', err)
-    emailError = err
+    console.warn('FormSubmit network notice:', err)
   }
 
   // 2. LƯU BẢN SAO VÀO LOCALSTORAGE
@@ -63,7 +68,7 @@ export async function submitApplication(data) {
     console.warn('LocalStorage save warning:', e)
   }
 
-  // 3. ĐẨY LÊN SUPABASE DATABASE (NẾU CÓ)
+  // 3. ĐẨY LÊN SUPABASE DATABASE (NẾU ĐÃ CẤU HÌNH)
   if (isSupabaseConfigured && supabase) {
     try {
       await supabase.from('candidates').insert([
@@ -82,5 +87,11 @@ export async function submitApplication(data) {
     }
   }
 
-  return { success: true, emailSent, targetEmail: TARGET_EMAIL }
+  return { 
+    success: true, 
+    emailSent, 
+    needsActivation, 
+    responseMessage,
+    targetEmail: TARGET_EMAIL 
+  }
 }
