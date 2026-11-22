@@ -743,7 +743,7 @@ export default function App() {
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900">Nộp Hồ Sơ Thành Công!</h3>
                   <p className="text-slate-600 max-w-md mx-auto text-sm">
-                    Cảm ơn bạn đã quan tâm và nộp hồ sơ gia nhập FAMACA. Ban tuyển dụng sẽ liên hệ lại với bạn qua Zalo/Điện thoại trong vòng 24 - 48 giờ làm việc.
+                    Cảm ơn bạn đã quan tâm và nộp hồ sơ gia nhập FAMACA. Thông tin ứng tuyển của bạn đã được chuyển trực tiếp tới email quản trị viên: <strong className="text-red-700">minhtanbear@gmail.com</strong>. Ban tuyển dụng sẽ liên hệ lại với bạn qua Zalo/Điện thoại trong vòng 24 - 48 giờ làm việc.
                   </p>
                   <div className="pt-4">
                     <button 
@@ -888,7 +888,8 @@ export default function App() {
                     <Mail className="w-4 h-4 text-red-700" />
                     <span>Gửi trực tiếp qua Email</span>
                   </div>
-                  <p><strong>Email:</strong> famacabook@gmail.com</p>
+                  <p><strong>Email chính:</strong> minhtanbear@gmail.com</p>
+                  <p><strong>Email công ty:</strong> famacabook@gmail.com</p>
                   <p><strong>Tiêu đề:</strong> [Vị trí ứng tuyển] – [Họ và tên] – [SĐT]</p>
                 </div>
 
@@ -956,7 +957,7 @@ export default function App() {
               <div className="space-y-2 text-xs text-slate-300">
                 <p>📍 <strong>Trụ sở:</strong> TP. Hồ Chí Minh, Việt Nam</p>
                 <p>📞 <strong>Hotline/Zalo:</strong> 0903.136.892 (Mr Hiệu)</p>
-                <p>✉️ <strong>Email nhận CV:</strong> famacabook@gmail.com</p>
+                <p>✉️ <strong>Email nhận CV:</strong> minhtanbear@gmail.com / famacabook@gmail.com</p>
                 <p>🕒 <strong>Giờ làm việc:</strong> Hỗ trợ giải đáp 24/7 cho ứng viên sinh viên</p>
               </div>
             </div>
