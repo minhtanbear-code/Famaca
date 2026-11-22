@@ -627,9 +627,9 @@ export default function App() {
               <div className="w-12 h-12 bg-amber-500/20 text-amber-400 rounded-xl flex items-center justify-center mb-5 font-black text-lg">
                 03
               </div>
-              <h3 className="text-lg font-bold mb-2">CV & Điểm Rèn Luyện</h3>
+              <h3 className="text-lg font-bold mb-2">CV & Chứng Nhận</h3>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Nhận <strong className="text-amber-400 font-bold">chứng nhận Công tác xã hội / Hoạt động cộng đồng</strong> hỗ trợ Điểm rèn luyện sinh viên; tích lũy kinh nghiệm dự án thực chiến để làm đẹp CV.
+                Nhận <strong className="text-amber-400 font-bold">chứng nhận Đại sứ Văn hóa đọc</strong>, tích lũy kinh nghiệm dự án thực chiến để làm đẹp CV.
               </p>
             </div>
 
